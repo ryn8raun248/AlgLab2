@@ -130,7 +130,8 @@ def generate_list_sorted(size):
 	Generate list of SORTED numbers
 	"""
 	list_new = list(range(1,size))
-	k_value = random.randint(1,size - 1)
+	# k_value = random.randint(1,size - 1)
+	k_value = size - 1
 	return list_new, k_value
 
 
@@ -139,7 +140,8 @@ def generate_list_reverse(size):
 	Generate list of REVERSE SORTED numbers
 	"""
 	list_new = list(range(1,size))
-	k_value = random.randint(1,size - 1)
+	# k_value = random.randint(1,size - 1)
+	k_value = size - 1
 	list_new_reverse = list_new[::-1]
 	return list_new_reverse, k_value
 
@@ -147,14 +149,14 @@ def generate_list_reverse(size):
 if __name__ == "__main__":
 
 
-	sizes = [10,100,1000]
+	sizes = [10, 100,1000, 10000, 100000]
 
 	runtimes = {}
 	runtimes_merge_sort = {}
 	print('Quick Select Results: \n')
 	for size in sizes:
-		# sys.setrecursionlimit(1000000) # this does not help with sizes > 1000 - it just prevents from crashing
-		arr, k_value = generate_list_sorted(size)
+		# sys.setrecursionlimit(1000000) # this does not help with sizes > 1000 when k value is randomized - it just prevents from crashing
+		arr, k_value = generate_list_reverse(size)
 		len_array = len(arr) - 1
 		start = time.perf_counter()
 		print("K'th smallest element is " + str(kthSmallest(arr, 0, len_array, k_value)) + " with k value of " + str(k_value))
@@ -174,5 +176,6 @@ if __name__ == "__main__":
 		runtimes_merge_sort[size] = end - start
 
 	print('Runtimes for merge sort: ', runtimes_merge_sort)
+
 
 
