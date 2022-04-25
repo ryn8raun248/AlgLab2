@@ -2,7 +2,8 @@ import pdb
 import random
 import sys
 import time
-
+import matplotlib.pyplot as plt
+import numpy as np
 """
 https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/ was used to assist
 with code in this lab
@@ -148,8 +149,8 @@ def generate_list_reverse(size):
 
 if __name__ == "__main__":
 
-
-	sizes = [10, 100,1000, 10000, 100000]
+	
+	sizes = [10, 100,1000, 10000, 100000, 1000000]
 
 	runtimes = {}
 	runtimes_merge_sort = {}
@@ -166,6 +167,18 @@ if __name__ == "__main__":
 	print('Runtimes for quick select: ', runtimes)
 
 
+	# names = list(runtimes.keys())
+	# values = list(runtimes.values())
+	
+	# xpoints = np.array(names)
+	# ypoints = np.array(values)
+
+	# plt.plot(xpoints, ypoints)
+	# plt.ylabel('Time in Seconds')
+	# plt.xlabel('List Size')
+	# plt.title('Our Implementation')
+	# plt.show()
+
 	print('\nRunning merge sort..')
 	for size in sizes:
 		arr, k_value = generate_list_reverse(size)
@@ -179,3 +192,14 @@ if __name__ == "__main__":
 
 
 
+# 	names = list(runtimes_merge_sort.keys())
+# 	values = list(runtimes_merge_sort.values())
+	
+# 	xpoints = np.array(names)
+# 	ypoints = np.array(values)
+
+# 	plt.plot(xpoints, ypoints)
+# 	plt.ylabel('Time in Seconds')
+# 	plt.xlabel('List Size')
+# 	plt.title('Merge Sort')
+# 	plt.show()
