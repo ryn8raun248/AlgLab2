@@ -100,8 +100,18 @@ class TestHeap(unittest.TestCase):
         lst = [random.randint(0,25) for i in range(10)]
         expected = lst[:]
         expected.sort()
+
+        lst1 = [random.randint(0, 25) for i in range(10)]
+        expected1 = lst1[:]
+        expected1.sort()
+
+        lst2 = [random.randint(0, 25) for i in range(10)]
+        expected2 = lst2[:]
+        expected2.sort()
         
         heapsort(lst)
+        heapsort(lst1)
+        heapsort(lst2)
         
         self.assertListEqual(expected, lst)
 

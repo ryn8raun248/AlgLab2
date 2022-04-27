@@ -95,6 +95,6 @@ def heapsort(A):
     """
     build_max_heap(A)
 
-    for i in range(len(A) - 1, 1, -1):
+    for i in range(len(A) - 1, 0, -1):
         A[0], A[i] = A[i], A[0]
-        _max_heapify(A, 0, i - 1)
+        _max_heapify(A, 0, i)
