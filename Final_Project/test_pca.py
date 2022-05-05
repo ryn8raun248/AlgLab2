@@ -1,26 +1,21 @@
-
 import numpy as np
 from pca import PCA
-import sklearn
-from sklearn.decomposition import PCA as sk_PCA
+from sklearn.decomposition import PCA as sklearn_PCA
 
 
 def main():
     num_components = 2
+    data = np.random.random((4, 4))
 
-    data = np.random.random((4,4))
+    pca = PCA(num_components)
+    pca.fit(data)
+    transformed_data = pca.transform()
 
-    p = PCA(num_components)
+    sk_transformed_data = sklearn_PCA(n_components=num_components).fit_transform(data)
 
-    pca2 = sk_PCA(n_components=num_components).fit(data)
+    print(transformed_data)
+    print(sk_transformed_data)
 
-    control = pca2.fit_transform(data)
-
-    x = p.get_components(data)
-
-    print(x)
-    print(control)
-    print()
 
 if __name__ == "__main__":
     main()
